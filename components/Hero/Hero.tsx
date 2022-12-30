@@ -21,10 +21,44 @@ const Hero = () => {
         </div>
 
         {/* description */}
-        <p className="text-2xl lg:text-4xl font-light lg:w-2/3 xl:w-1/2 mt-8 md:mt-20 z-10 !leading-normal">
-          Design & development studio turning ideas into{" "}
-          <span>mobile apps.</span>
-        </p>
+        <div className="text-2xl lg:text-4xl font-light lg:w-2/3 xl:w-1/2 mt-8 md:mt-20 z-10 !leading-normal">
+          Design & development studio turning ideas into {/* mobile */}
+          <div className="inline pl-2.5 absolute">
+            <span className="block whitespace-nowrap animate-slideIn overflow-hidden opacity-0">
+              mobile apps.
+            </span>
+          </div>
+          {/* web */}
+          <div className="inline pl-2.5 absolute">
+            <span className="block whitespace-nowrap animate-slideIn-fast overflow-hidden opacity-0">
+              web apps.
+            </span>
+          </div>
+          {/* solutions */}
+          <div className="inline pl-2.5 absolute">
+            <span className="block whitespace-nowrap animate-slideIn-normal overflow-hidden opacity-0">
+              solutions.
+            </span>
+          </div>
+          {/* reality */}
+          <div className="inline pl-2.5 absolute">
+            <span className="block whitespace-nowrap animate-slideIn-slow overflow-hidden opacity-0">
+              reality.
+            </span>
+          </div>
+          {/* open source */}
+          <div className="inline pl-2.5 absolute">
+            <span className="block whitespace-nowrap animate-slideIn-slower overflow-hidden opacity-0">
+              open source.
+            </span>
+          </div>
+          {/* apps */}
+          <div className="inline pl-2.5 absolute">
+            <span className="block whitespace-nowrap animate-slideIn-slowest overflow-hidden opacity-0">
+              apps.
+            </span>
+          </div>
+        </div>
 
         {/* menu */}
         <ul className="flex items-center mt-8 md:mt-24">
