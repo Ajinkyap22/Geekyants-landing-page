@@ -67,7 +67,7 @@ const Hero = () => {
         <ul className="flex items-center mt-8 md:mt-24 2xl:mt-32">
           {/* let's talk */}
           <li>
-            <LetsTalk />
+            <LetsTalk text="LET'S TALK" />
           </li>
 
           {/* products */}

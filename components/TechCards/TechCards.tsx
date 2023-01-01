@@ -26,10 +26,6 @@ const TechCards = ({ activeTab }: Props) => {
     }
   }, [activeTab]);
 
-  useEffect(() => {
-    console.log(tech);
-  }, [tech]);
-
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
       {tech.map((tech) => (

@@ -1,13 +1,13 @@
-import vue from "public/images/vue.svg";
-import next from "public/images/next.svg";
-import svelte from "public/images/svelte.svg";
-import react from "public/images/react.svg";
-import laravel from "public/images/laravel.svg";
-import node from "public/images/node.svg";
-import java from "public/images/java.svg";
-import angular from "public/images/angular.svg";
-import native from "public/images/native.svg";
-import firebase from "public/images/firebase.svg";
+import vue from "public/images/tech/vue.svg";
+import next from "public/images/tech/next.svg";
+import svelte from "public/images/tech/svelte.svg";
+import react from "public/images/tech/react.svg";
+import laravel from "public/images/tech/laravel.svg";
+import node from "public/images/tech/node.svg";
+import java from "public/images/tech/java.svg";
+import angular from "public/images/tech/angular.svg";
+import native from "public/images/tech/native.svg";
+import firebase from "public/images/tech/firebase.svg";
 
 // web tech array
 export const web = [

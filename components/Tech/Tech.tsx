@@ -13,9 +13,9 @@ const Tech = () => {
 
   return (
     <div className="bg-zinc-100">
-      <div className="container mx-auto md:py-28 px-8 md:px-20 2xl:px-40">
+      <div className="container mx-auto py-8 md:py-28 px-8 md:px-20 2xl:px-40">
         {/* title */}
-        <h1 className="text-5xl font-bold">Tech We Love</h1>
+        <h1 className="text-4xl md:text-5xl font-bold">Tech We Love</h1>
 
         {/* description */}
         <p className="font-light text-xl my-3">
@@ -26,7 +26,7 @@ const Tech = () => {
 
         {/* button */}
         <div className="mt-12">
-          <LetsTalk />
+          <LetsTalk text="LET'S TALK" />
         </div>
 
         {/* tabs */}

@@ -2,6 +2,7 @@ import Head from "next/head";
 
 import Hero from "components/Hero/Hero";
 import Tech from "components/Tech/Tech";
+import Communities from "components/Communities/Communities";
 
 export default function Home() {
   return (
@@ -34,6 +35,9 @@ export default function Home() {
 
       {/* tech we love */}
       <Tech />
+
+      {/* communities */}
+      <Communities />
     </>
   );
 }
