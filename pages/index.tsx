@@ -3,6 +3,7 @@ import Head from "next/head";
 import Hero from "components/Hero/Hero";
 import Tech from "components/Tech/Tech";
 import Communities from "components/Communities/Communities";
+import Insights from "components/Insights/Insights";
 
 export default function Home() {
   return (
@@ -38,6 +39,9 @@ export default function Home() {
 
       {/* communities */}
       <Communities />
+
+      {/* insights */}
+      <Insights />
     </>
   );
 }

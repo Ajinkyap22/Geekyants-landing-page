@@ -12,7 +12,7 @@ const Tech = () => {
   };
 
   return (
-    <div className="bg-zinc-100">
+    <div className="bg-zinc-100 pb-16">
       <div className="container mx-auto py-8 md:py-28 px-8 md:px-20 2xl:px-40">
         {/* title */}
         <h1 className="text-4xl md:text-5xl font-bold">Tech We Love</h1>

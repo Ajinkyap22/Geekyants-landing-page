@@ -112,6 +112,11 @@ module.exports = {
         "fade-slow": "fade-slow 12s 3.75s infinite ease !important",
         "fade-slower": "fade-slower 12s 7.75s infinite ease !important",
       },
+      boxShadow: {
+        card: "0 10px 30px #0000000f",
+        "card-hover":
+          "0 2px 2px rgb(45 45 45 / 5%), 0 4px 4px rgb(49 49 49 / 5%), 0 8px 8px rgb(42 42 42 / 5%), 0 16px 16px rgb(32 32 32 / 5%), 0 32px 32px rgb(49 49 49 / 5%), 0 64px 64px rgb(35 35 35 / 5%);",
+      },
     },
   },
   plugins: [],

@@ -9,10 +9,10 @@ type Props = {
 
 const CommunitiyCard = ({ name, icon, bgColor }: Props) => {
   return (
-    <div className="h-44">
+    <div>
       {/* div with bg */}
       <div
-        className={`flex items-center justify-center p-10 h-full`}
+        className={`flex items-center justify-center p-10 h-44`}
         style={{
           backgroundColor: bgColor,
         }}
