@@ -8,7 +8,7 @@ import Logo from "public/images/logo.svg";
 const Hero = () => {
   return (
     <section className="overflow-x-hidden relative">
-      <div className="container xl:mx-auto px-8 md:px-20 2xl:px-40 flex flex-col justify-center mt-28 md:mt-44 pb-20">
+      <div className="container xl:mx-auto px-8 lg:px-20 2xl:px-40 flex flex-col justify-center mt-28 md:mt-44 pb-20">
         {/* title */}
         <div className="z-10">
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade">

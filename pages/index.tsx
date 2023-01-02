@@ -4,6 +4,7 @@ import Hero from "components/Hero/Hero";
 import Tech from "components/Tech/Tech";
 import Communities from "components/Communities/Communities";
 import Insights from "components/Insights/Insights";
+import Footer from "components/Footer/Footer";
 
 export default function Home() {
   return (
@@ -42,6 +43,9 @@ export default function Home() {
 
       {/* insights */}
       <Insights />
+
+      {/* footer */}
+      <Footer />
     </>
   );
 }

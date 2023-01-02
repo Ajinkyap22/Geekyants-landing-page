@@ -12,7 +12,7 @@ const CommunitiyCard = ({ name, icon, bgColor }: Props) => {
     <div>
       {/* div with bg */}
       <div
-        className={`flex items-center justify-center p-10 h-44`}
+        className={`flex items-center justify-center p-10 h-44 cursor-pointer`}
         style={{
           backgroundColor: bgColor,
         }}

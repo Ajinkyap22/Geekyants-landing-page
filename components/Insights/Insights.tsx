@@ -6,7 +6,7 @@ import BlogCard from "components/BlogCard/BlogCard";
 const Insights = () => {
   return (
     <div className="bg-zinc-100 pb-16">
-      <div className="container mx-auto py-8 md:py-28 px-8 md:px-20 2xl:px-40">
+      <div className="container xl:mx-auto py-8 md:py-28 px-8 lg:px-20 2xl:px-40">
         {/* title */}
         <h1 className="text-4xl md:text-5xl font-bold py-1">Insights</h1>
 

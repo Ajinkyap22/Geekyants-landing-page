@@ -11,7 +11,7 @@ type Props = {
 
 const TechCard = ({ tech }: Props) => {
   return (
-    <div className="bg-white p-5 border border-[#e6e6e6]">
+    <div className="bg-white p-5 border border-[#e6e6e6] cursor-pointer">
       <Image
         src={tech.icon}
         alt={tech.name}
