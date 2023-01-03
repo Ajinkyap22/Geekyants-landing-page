@@ -5,7 +5,7 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-black pt-8 md:pt-20">
-      <div className="container xl:mx-auto mb-12 px-8 lg:px-20 2xl:px-40">
+      <div className="xl:container xl:mx-auto mb-12 px-8 lg:px-20 2xl:px-40">
         {/* grid */}
         <div className="grid grid-cols-1 lg:grid-cols-[2.25fr_1fr_1fr_1fr]">
           {/* left */}
@@ -436,7 +436,7 @@ const Footer = () => {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -477,7 +477,7 @@ const Footer = () => {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -520,7 +520,7 @@ const Footer = () => {
                 <svg
                   stroke="currentColor"
                   fill="currentColor"
-                  stroke-width="0"
+                  strokeWidth="0"
                   viewBox="0 0 512 512"
                   height="1em"
                   width="1em"
@@ -539,7 +539,7 @@ const Footer = () => {
 
       {/* copyright */}
       <div className="mt-10 bg-[#161617] py-4">
-        <div className="container xl:mx-auto flex-col flex md:flex-row justify-between px-8 lg:px-20 2xl:px-40">
+        <div className="xl:container xl:mx-auto flex-col flex md:flex-row justify-between px-8 lg:px-20 2xl:px-40">
           <span className="block text-white tracking-wider opacity-70 font-light text-sm">
             2022 © All rights reserved. GeekyAnts India Pvt Ltd
           </span>

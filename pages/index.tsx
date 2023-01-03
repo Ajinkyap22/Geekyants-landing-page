@@ -1,5 +1,7 @@
+import React, { useRef, useEffect, useState } from "react";
 import Head from "next/head";
 
+import Navbar from "components/Navbar/Navbar";
 import Hero from "components/Hero/Hero";
 import Tech from "components/Tech/Tech";
 import Communities from "components/Communities/Communities";
@@ -7,6 +9,32 @@ import Insights from "components/Insights/Insights";
 import Footer from "components/Footer/Footer";
 
 export default function Home() {
+  const techRef = useRef<HTMLDivElement | null>(null);
+  const [showNavbar, setShowNavbar] = useState<boolean>(false);
+
+  const handleWindowScrollAndResize = () => {
+    if (!techRef.current) return;
+
+    const techRefTop = techRef.current.getBoundingClientRect().top;
+
+    // check if the navbar is about to overlap with the tech section
+    if (techRefTop <= 80) {
+      setShowNavbar(true);
+    } else {
+      setShowNavbar(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", handleWindowScrollAndResize);
+    window.addEventListener("resize", handleWindowScrollAndResize);
+
+    return () => {
+      window.removeEventListener("scroll", handleWindowScrollAndResize);
+      window.removeEventListener("resize", handleWindowScrollAndResize);
+    };
+  }, [handleWindowScrollAndResize]);
+
   return (
     <>
       <Head>
@@ -32,11 +60,14 @@ export default function Home() {
         ></meta>
       </Head>
 
+      {/* navbar */}
+      <Navbar showNavbar={showNavbar} />
+
       {/* hero section */}
       <Hero />
 
       {/* tech we love */}
-      <Tech />
+      <Tech ref={techRef} />
 
       {/* communities */}
       <Communities />

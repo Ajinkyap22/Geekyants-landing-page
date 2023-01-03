@@ -1,10 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, forwardRef } from "react";
 
 import LetsTalk from "components/LetsTalk/LetsTalk";
 import TechTabs from "components/TechTabs/TechTabs";
 import TechCards from "components/TechCards/TechCards";
 
-const Tech = () => {
+const Tech = forwardRef<HTMLDivElement, {}>((props, ref) => {
   const [activeTab, setActiveTab] = useState<string>("Top");
 
   const handleTabClick = (tab: string) => {
@@ -12,8 +12,8 @@ const Tech = () => {
   };
 
   return (
-    <div className="bg-zinc-100 pb-16">
-      <div className="container xl:mx-auto py-8 md:py-28 px-8 lg:px-20 2xl:px-40">
+    <div ref={ref} className="bg-zinc-100 pb-16">
+      <div className="xl:container xl:mx-auto py-8 md:py-28 px-8 lg:px-20 2xl:px-40">
         {/* title */}
         <h1 className="text-4xl md:text-5xl font-bold">Tech We Love</h1>
 
@@ -37,6 +37,6 @@ const Tech = () => {
       </div>
     </div>
   );
-};
+});
 
 export default Tech;
