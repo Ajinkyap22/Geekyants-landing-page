@@ -32,12 +32,12 @@ const Navbar = ({ showNavbar }: Props) => {
         <div className="hidden lg:block">
           <ul className="lg:flex items-center justify-between">
             {/* products */}
-            <li className="px-4 text-[#34333a]">
+            <li className="px-4 text-nav-link">
               <h6 className="py-6 md:text-xl tracking-wider w-max">Products</h6>
             </li>
 
             {/* services */}
-            <li className="px-4 text-[#34333a] flex items-center">
+            <li className="px-4 text-nav-link flex items-center">
               <h6 className="py-6 md:text-xl tracking-wider w-max">Services</h6>
 
               <svg
@@ -53,7 +53,7 @@ const Navbar = ({ showNavbar }: Props) => {
             </li>
 
             {/* our work */}
-            <li className="px-4 text-[#34333a] flex items-center">
+            <li className="px-4 text-nav-link flex items-center">
               <h6 className="py-6 md:text-xl tracking-wider w-max">Our Work</h6>
 
               <svg
@@ -69,14 +69,14 @@ const Navbar = ({ showNavbar }: Props) => {
             </li>
 
             {/* solutions */}
-            <li className="px-4 text-[#34333a]">
+            <li className="px-4 text-nav-link">
               <h6 className="py-6 md:text-xl tracking-wider w-max">
                 Solutions
               </h6>
             </li>
 
             {/* more */}
-            <li className="px-4 text-[#34333a] flex items-center">
+            <li className="px-4 text-nav-link flex items-center">
               <h6 className="py-6 md:text-xl tracking-wider w-max">More</h6>
 
               <svg

@@ -38,9 +38,20 @@ const font = localFont({
   variable: "--font-display",
 });
 
+const fontLight = localFont({
+  src: [
+    {
+      path: "../fonts/SFProDisplay-Light.woff2",
+      weight: "300",
+      style: "normal",
+    },
+  ],
+  variable: "--font-display-light",
+});
+
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${font.variable} font-sans`}>
+    <main className={`${fontLight.variable} ${font.variable} font-sans `}>
       <Component {...pageProps} />
     </main>
   );

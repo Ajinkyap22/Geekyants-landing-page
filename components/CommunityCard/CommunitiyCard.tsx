@@ -2,12 +2,13 @@ import React, { useState } from "react";
 import Image from "next/image";
 
 type Props = {
+  id: number;
   name: string;
-  icon: string;
+  image: string;
   bgColor: string;
 };
 
-const CommunitiyCard = ({ name, icon, bgColor }: Props) => {
+const CommunitiyCard = ({ name, image, bgColor }: Props) => {
   return (
     <div>
       {/* div with bg */}
@@ -19,7 +20,7 @@ const CommunitiyCard = ({ name, icon, bgColor }: Props) => {
       >
         {/* image */}
         <Image
-          src={icon}
+          src={image}
           alt={name}
           width="0"
           height="0"

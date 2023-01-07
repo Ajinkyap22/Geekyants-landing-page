@@ -10,6 +10,7 @@ module.exports = {
     extend: {
       fontFamily: {
         sans: ["var(--font-display)", ...fontFamily.sans],
+        "sans-light": ["var(--font-display-light)", ...fontFamily.sans],
       },
       colors: {
         primary: "#CA0515",
@@ -118,6 +119,14 @@ module.exports = {
           "0 2px 2px rgb(45 45 45 / 5%), 0 4px 4px rgb(49 49 49 / 5%), 0 8px 8px rgb(42 42 42 / 5%), 0 16px 16px rgb(32 32 32 / 5%), 0 32px 32px rgb(49 49 49 / 5%), 0 64px 64px rgb(35 35 35 / 5%);",
         navbar:
           "rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 10px 15px -3px, rgba(0, 0, 0, 0.1) 0px 4px 6px -4px",
+      },
+      textColor: {
+        "nav-link": "#34333a",
+        light: "#C0C0C4",
+      },
+      backgroundColor: {
+        dark: "#222323",
+        darkBlue: "#2A2B3B",
       },
     },
   },

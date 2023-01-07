@@ -1,8 +1,15 @@
 import React from "react";
 
 import Image from "next/image";
+import uniqid from "uniqid";
 
-const Footer = () => {
+import { FooterDataType } from "types/footerDataType";
+
+type Props = {
+  data: FooterDataType;
+};
+
+const Footer = ({ data }: Props) => {
   return (
     <footer className="bg-black pt-8 md:pt-20">
       <div className="xl:container xl:mx-auto mb-12 px-8 lg:px-20 2xl:px-40">
@@ -27,7 +34,7 @@ const Footer = () => {
             </p>
 
             {/* brands */}
-            <div className="flex items-center rounded w-fit py-4 px-6 bg-[#222323]">
+            <div className="flex items-center rounded w-fit py-4 px-6 bg-dark">
               {/* iso */}
               <div className="w-16 hover:opacity-90 cursor-pointer">
                 <Image
@@ -73,89 +80,21 @@ const Footer = () => {
 
               {/* social media icons */}
               <div className="flex flex-wrap w-full">
-                {/* instagram */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMS44MjIiIGhlaWdodD0iMjEuODIyIiB2aWV3Qm94PSIwIDAgMjEuNTIxIDIxLjUyMSI+PGcgZGF0YS1uYW1lPSJJY29uIGZlYXRoZXItaW5zdGFncmFtIiBmaWxsPSJub25lIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiPjxnIGRhdGEtbmFtZT0iR3JvdXAgMTEyODAiIHN0cm9rZS13aWR0aD0iLjciPjxwYXRoIGRhdGEtbmFtZT0iUGF0aCAxNDMxIiBkPSJNNS41NTYuMzVoMTAuNDExYTUuMjA2IDUuMjA2IDAgMDE1LjIwNiA1LjIwNnYxMC40MTFhNS4yMDYgNS4yMDYgMCAwMS01LjIwNiA1LjIwNkg1LjU1NkE1LjIwNiA1LjIwNiAwIDAxLjM1IDE1Ljk2N1Y1LjU1NkE1LjIwNiA1LjIwNiAwIDAxNS41NTYuMzV6IiBzdHJva2U9IiNmNmY2ZjYiLz48cGF0aCBkYXRhLW5hbWU9IlBhdGggMTQzMiIgZD0iTTE0LjkyNiAxMC4xMDZhNC4xNjQgNC4xNjQgMCAxMS0zLjUwOS0zLjUwOSA0LjE2NCA0LjE2NCAwIDAxMy41MDkgMy41MDl6IiBzdHJva2U9IiNmZmYiLz48L2c+PHBhdGggZGF0YS1uYW1lPSJQYXRoIDE0MzMiIGQ9Ik0xNi40ODcgNS4wMzVoMCIgc3Ryb2tlPSIjZjdmOWY5IiBzdHJva2Utd2lkdGg9IjIiLz48L2c+PC9zdmc+"
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
-
-                {/* facebook */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMS4zMDUiIGhlaWdodD0iMTAuNSIgdmlld0JveD0iMCAwIDExLjMwNSAyMC41ODQiPjxwYXRoIGQ9Ik0xMC4zMDIgMTEuNTQxbC41NTUtMy42MTdINy4zOTFWNS41NzdBMS44MDggMS44MDggMCAwMTkuNDMgMy42MjNoMS41NzhWLjU0NEExOS4yMzkgMTkuMjM5IDAgMDA4LjIwMy4zQzUuMzQ1LjMgMy40NzcgMi4wMzIgMy40NzcgNS4xNjh2Mi43NTZILjN2My42MTdoMy4xNzd2OC43NDNoMy45MTR2LTguNzQzeiIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjZmZmIiBzdHJva2Utd2lkdGg9Ii42Ii8+PC9zdmc+"
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
-
-                {/* twitter */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMi43MjEiIGhlaWdodD0iMTguMjc1Ij48cGF0aCBkPSJNMTkuNjUyIDQuNzNjLjAxNC4xOTMuMDE0LjM4Ni4wMTQuNTc5QTEyLjU4IDEyLjU4IDAgMDE2Ljk5OSAxNy45NzVhMTIuNTgxIDEyLjU4MSAwIDAxLTYuODM3LTIgOS4yMSA5LjIxIDAgMDAxLjA3NS4wNTUgOC45MTYgOC45MTYgMCAwMDUuNTI3LTEuOSA0LjQ2IDQuNDYgMCAwMS00LjE2Mi0zLjA4OCA1LjYxNCA1LjYxNCAwIDAwLjg0MS4wNjkgNC43MDkgNC43MDkgMCAwMDEuMTcyLS4xNTJBNC40NTMgNC40NTMgMCAwMTEuMDQ0IDYuNTl2LS4wNTVhNC40ODQgNC40ODQgMCAwMDIuMDEyLjU2NSA0LjQ1OSA0LjQ1OSAwIDAxLTEuMzc4LTUuOTU0IDEyLjY1NSAxMi42NTUgMCAwMDkuMTg0IDQuNjU5IDUuMDI2IDUuMDI2IDAgMDEtLjExLTEuMDIgNC40NTYgNC40NTYgMCAwMTcuNy0zLjA0NkE4Ljc2NSA4Ljc2NSAwIDAwMjEuMjc4LjY2NGE0LjQ0IDQuNDQgMCAwMS0xLjk1NyAyLjQ1MyA4LjkyNSA4LjkyNSAwIDAwMi41NjQtLjY4OSA5LjU3IDkuNTcgMCAwMS0yLjIzMyAyLjN6IiBmaWxsPSJub25lIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iLjYiLz48L3N2Zz4="
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
-
-                {/* linkedin */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMC42ODgiIGhlaWdodD0iMjAuNjg1Ij48cGF0aCBkPSJNNC44MDEgMjAuMzg1SC42MzNWNi45NzVoNC4xNjh6TTIuNzEzIDUuMTQ2YTIuNDIzIDIuNDIzIDAgMTEyLjQxMS0yLjQzNSAyLjQzMiAyLjQzMiAwIDAxLTIuNDExIDIuNDM1em0xNy42NyAxNS4yMzloLTQuMTU2di02LjUyOGMwLTEuNTU2LS4wMzEtMy41NTEtMi4xNjUtMy41NTEtMi4xNjUgMC0yLjUgMS42OS0yLjUgMy40Mzl2Ni42NEg3LjQwMVY2Ljk3NWg0djEuODI5aC4wNThhNC4zNzYgNC4zNzYgMCAwMTMuOTQyLTIuMTY1YzQuMjE0IDAgNC45ODkgMi43NzUgNC45ODkgNi4zOHY3LjM2NnoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNiIvPjwvc3ZnPg=="
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
-
-                {/* youtube */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMC40MDYiIGhlaWdodD0iMTQuMzExIj48ZGVmcz48c3R5bGU+LmF7ZmlsbDpub25lO3N0cm9rZTojZmZmO3N0cm9rZS1saW5lY2FwOnJvdW5kO3N0cm9rZS1saW5lam9pbjpyb3VuZDtzdHJva2Utd2lkdGg6LjZweH08L3N0eWxlPjwvZGVmcz48ZyB0cmFuc2Zvcm09InRyYW5zbGF0ZSgtMTcuMTk5IC0yNy4yKSI+PHBhdGggY2xhc3M9ImEiIGQ9Ik0zMS4yMTEgMzQuMzU2bC0yLjk3MSAxLjUyNi0yLjk3IDEuNTI0di02LjFsMi45NzEgMS41MjN6Ii8+PHJlY3QgY2xhc3M9ImEiIHdpZHRoPSIxOS44MDUiIGhlaWdodD0iMTMuNzExIiByeD0iNCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMTcuNSAyNy41KSIvPjwvZz48L3N2Zz4="
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
-
-                {/* discord */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyMi41OTgiIGhlaWdodD0iMTcuNjc4Ij48cGF0aCBkYXRhLW5hbWU9IlBhdGggMzA1NSIgZD0iTTE4Ljk2OSAxLjcxMmExOCAxOCAwIDAwLTQuNTYtMS40MzMgMTMuMzcgMTMuMzcgMCAwMC0uNTg0IDEuMjEzIDE2Ljc0MyAxNi43NDMgMCAwMC01LjA1NCAwQTEyLjk2MyAxMi45NjMgMCAwMDguMTguMjc5YTE3Ljk0MiAxNy45NDIgMCAwMC00LjU2MyAxLjQzM0ExOS4xMjQgMTkuMTI0IDAgMDAuMzQgMTQuNTE5YTE4LjIzMSAxOC4yMzEgMCAwMDUuNTkzIDIuODY2IDEzLjkwOSAxMy45MDkgMCAwMDEuMi0xLjk3MyAxMS43NzggMTEuNzc4IDAgMDEtMS44ODctLjkxOGMuMTU4LS4xMTcuMzEzLS4yNC40NjItLjM2NmExMi44ODggMTIuODg4IDAgMDAxMS4xODIgMGMuMTUxLjEyNi4zMDYuMjQ5LjQ2Mi4zNjZhMTEuNzQ4IDExLjc0OCAwIDAxLTEuODkuOTIgMTMuODQ3IDEzLjg0NyAwIDAwMS4yIDEuOTczIDE4LjE5NCAxOC4xOTQgMCAwMDUuNi0yLjg2OCAxOS4xMDUgMTkuMTA1IDAgMDAtMy4yOTMtMTIuODA3ek03LjYyNiAxMS45NGEyLjE0NSAyLjE0NSAwIDAxLTEuOTg3LTIuMjYgMi4xMzQgMi4xMzQgMCAwMTEuOTg3LTIuMjYyQTIuMTIgMi4xMiAwIDAxOS42MTMgOS42OGEyLjEzMSAyLjEzMSAwIDAxLTEuOTg3IDIuMjZ6bTcuMzQzIDBhMi4xNDUgMi4xNDUgMCAwMS0xLjk4Ny0yLjI2IDIuMTM0IDIuMTM0IDAgMDExLjk4Ny0yLjI2MiAyLjEyIDIuMTIgMCAwMTEuOTg3IDIuMjYyIDIuMTMzIDIuMTMzIDAgMDEtMS45ODcgMi4yNnoiIGZpbGw9Im5vbmUiIHN0cm9rZT0iI2ZmZiIgc3Ryb2tlLXdpZHRoPSIuNSIvPjwvc3ZnPg=="
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
-
-                {/* medium */}
-                <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-[#222323]">
-                  <Image
-                    src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxOCIgaGVpZ2h0PSIxMC4yMDgiPjxwYXRoIGQ9Ik0xMC4xNjMgNS4xMDRhNS4wODIgNS4wODIgMCAxMS01LjA4MS01LjEgNS4wOTQgNS4wOTQgMCAwMTUuMDgxIDUuMW01LjU3OSAwYzAgMi42NjUtMS4xMyA0LjgxMS0yLjUzIDQuODExcy0yLjUyOS0yLjE0Ni0yLjUyOS00LjgxMVMxMS44MTIuMjkzIDEzLjIxMi4yOTNjMS4zNzggMCAyLjUzIDIuMTY5IDIuNTMgNC44MTFtMi4yNTggMGMwIDIuMzcxLS40MDcgNC4zMTQtLjkgNC4zMTRzLS45LTEuOTQzLS45LTQuMzE0LjQwNy00LjMxNC45LTQuMzE0Yy41MTkgMCAuOSAxLjk0My45IDQuMzE0IiBmaWxsPSIjZmZmZmZmY2MiLz48L3N2Zz4="
-                    width="0"
-                    height="0"
-                    sizes="100vw"
-                    className="w-6 h-6 object-contain"
-                    alt="Instagram"
-                  />
-                </div>
+                {data.socialIcons.map((icon) => (
+                  <div
+                    key={uniqid()}
+                    className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-dark"
+                  >
+                    <Image
+                      src={icon.src}
+                      width="0"
+                      height="0"
+                      sizes="100vw"
+                      className="w-6 h-6 object-contain"
+                      alt={icon.name}
+                    />
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -169,49 +108,14 @@ const Footer = () => {
 
             {/* list */}
             <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-3 lg:gap-0">
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                About us
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Freshers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Leaders
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Our Work
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Products
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Developer Environment Security
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Hire Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Join GeekyAnts
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Events & Conferences
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Gallery
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Partner Program
-              </li>
+              {data.quickLinks.map((link) => (
+                <li
+                  key={uniqid()}
+                  className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal"
+                >
+                  {link}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -224,49 +128,14 @@ const Footer = () => {
 
             {/* list */}
             <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-3 lg:gap-0 w-full">
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                React Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                React Native Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Angular Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Node Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Laravel Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Flutter Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Vue JS Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Python Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Golang Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                Svelte Developers
-              </li>
-
-              <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                UI/UX Designers
-              </li>
+              {data.hireDevelopers.map((type) => (
+                <li
+                  key={uniqid()}
+                  className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal"
+                >
+                  {type}
+                </li>
+              ))}
             </ul>
           </div>
 
@@ -323,217 +192,61 @@ const Footer = () => {
 
         {/* awards */}
         <div className="grid mt-14 grid-cols-3 md:grid-cols-7 items-center justify-items-center gap-14 py-10 border-y border-[#707070]">
-          {/* clutch */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/clutch-4e399910a1f3ec5ec4e3b347013138bf.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
-          {/* top ui/ux */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/topDevelopers-ddc944386b7a7fcb09c078823517332b.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
-          {/* appfutura */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/appfutura-cd5c2ef2448ebd7d8b29b5fcc53e2e16.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
-          {/* business of apps */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/boa-featured-5aad93aa1b634ee11a94c610ccba1ff6.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
-          {/* design rush */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/design-rush-fbdd2f9b6d1081016c7df9baf49bb690.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
-
-          {/* goodfirms */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/goodfirms-7e94804a3d10ceb4f7a85a124648ae03.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
-
-          {/* upcity marketplace */}
-          <div className="w-3/4">
-            <Image
-              src="https://geekyants.com/_next/static/images/Upcity-6be0ca137aa9e3900c70033f845dec56.svg"
-              width="0"
-              height="0"
-              sizes="100vw"
-              className="w-full"
-              alt="Clutch"
-            />
-          </div>
+          {data.awards.map((award) => (
+            <div key={uniqid()} className="w-3/4">
+              <Image
+                src={award}
+                width="0"
+                height="0"
+                sizes="100vw"
+                className="w-full"
+                alt="award"
+              />
+            </div>
+          ))}
         </div>
 
         {/* addresses */}
         <div className="grid md:grid-cols-3 mt-10 gap-10 pt-12">
-          {/* india */}
-          <div>
-            {/* title */}
-            <h6 className="flex items-center">
-              <Image
-                src="https://geekyants.com/_next/static/images/India-83003bb4d679919eec3d65fb83459007.svg"
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-6 mr-2"
-                alt="India"
-              />
+          {data.addresses.map((address) => (
+            <div key={address.id}>
+              {/* title */}
+              <h6 className="flex items-center">
+                <Image
+                  src={address.icon}
+                  width="0"
+                  height="0"
+                  sizes="100vw"
+                  className="w-6 mr-2"
+                  alt="flag"
+                />
 
-              <span className="text-white opacity-70">
-                GeekyAnts India Pvt Ltd
-              </span>
-            </h6>
+                <span className="text-white opacity-70">{address.company}</span>
+              </h6>
 
-            {/* address */}
-            <address className="mt-3 text-white opacity-70 text-sm font-normal not-italic">
-              <span className="block leading-6">
-                No. 18, 2nd Cross Road, N S Palya, 2nd Stage
-              </span>
-              <span className="block leading-6">
-                BTM Layout, Bangalore - 560076, Karnataka, India
-              </span>
-              <div className="leading-6 pt-2 flex items-center">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 512 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="rotate-90"
-                >
-                  <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path>
-                </svg>
+              {/* address */}
+              <address className="mt-3 text-white opacity-70 text-sm font-normal not-italic">
+                <span className="block leading-6">{address.address}</span>
 
-                <span className="block px-3"> +91 9595884422</span>
-              </div>
-            </address>
-          </div>
+                <div className="leading-6 pt-2 flex items-center">
+                  <svg
+                    stroke="currentColor"
+                    fill="currentColor"
+                    strokeWidth="0"
+                    viewBox="0 0 512 512"
+                    height="1em"
+                    width="1em"
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="rotate-90"
+                  >
+                    <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path>
+                  </svg>
 
-          {/* uk */}
-          <div>
-            {/* title */}
-            <h6 className="flex items-center">
-              <Image
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAwIDUwMCI+PHBhdGggZmlsbD0iIzAwNiIgZD0iTTAgMGgxMDAwLjAydjUwMC4wMUgweiIvPjxwYXRoIGQ9Ik0wIDB2NTUuOTAzbDg4OC4yMTggNDQ0LjEwOWgxMTEuODAyVjQ0NC4xMUwxMTEuODAyIDBIMHptMTAwMC4wMiAwdjU1LjkwMUwxMTEuODAyIDUwMC4wMUgwdi01NS45MDFMODg4LjIxOCAwaDExMS44MDJ6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTQxNi42NzUgMHY1MDAuMDFoMTY2LjY3VjBoLTE2Ni42N3pNMCAxNjYuNjd2MTY2LjY3aDEwMDAuMDJWMTY2LjY3SDB6IiBmaWxsPSIjZmZmIi8+PHBhdGggZD0iTTAgMjAwLjAwNHYxMDAuMDAyaDEwMDAuMDJWMjAwLjAwNEgwek00NTAuMDA5IDB2NTAwLjAxaDEwMC4wMDJWMEg0NTAuMDA5ek0wIDUwMC4wMWwzMzMuMzQtMTY2LjY3aDc0LjUzNUw3NC41MzUgNTAwLjAxSDB6TTAgMGwzMzMuMzQgMTY2LjY3aC03NC41MzVMMCAzNy4yN1Ywem01OTIuMTQ1IDE2Ni42N0w5MjUuNDg1IDBoNzQuNTM1TDY2Ni42OCAxNjYuNjdoLTc0LjUzNXptNDA3Ljg3NSAzMzMuMzRMNjY2LjY4IDMzMy4zNGg3NC41MzVsMjU4LjgwNSAxMjkuNDAzdjM3LjI2N3oiIGZpbGw9IiNjMDAiLz48L3N2Zz4="
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-6 mr-2"
-                alt="India"
-              />
-
-              <span className="text-white opacity-70">GeekyAnts UK Ltd</span>
-            </h6>
-
-            {/* address */}
-            <address className="mt-3 text-white opacity-70 text-sm font-normal not-italic">
-              <span className="block leading-6">
-                7 Bickleigh House, Frogwell Close, London N15 6ED,
-              </span>
-              <span className="block leading-6">England, UK</span>
-              <div className="leading-6 pt-2 flex items-center">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 512 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="rotate-90"
-                >
-                  <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path>
-                </svg>
-
-                <span className="block px-3"> 44 7424797407</span>
-              </div>
-            </address>
-          </div>
-
-          {/* us */}
-          <div>
-            {/* title */}
-            <h6 className="flex items-center">
-              <Image
-                src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTIzNSIgaGVpZ2h0PSI2NTAiIHZpZXdCb3g9IjAgMCA3NDEwIDM5MDAiPjxwYXRoIGZpbGw9IiNiMjIyMzQiIGQ9Ik0wIDBoNzQxMHYzOTAwSDB6Ii8+PHBhdGggZD0iTTAgNDUwaDc0MTBtMCA2MDBIMG0wIDYwMGg3NDEwbTAgNjAwSDBtMCA2MDBoNzQxMG0wIDYwMEgwIiBzdHJva2U9IiNmZmYiIHN0cm9rZS13aWR0aD0iMzAwIi8+PHBhdGggZmlsbD0iIzNjM2I2ZSIgZD0iTTAgMGgyOTY0djIxMDBIMHoiLz48ZyBmaWxsPSIjZmZmIj48ZyBpZD0iZCI+PGcgaWQ9ImMiPjxnIGlkPSJlIj48ZyBpZD0iYiI+PHBhdGggaWQ9ImEiIGQ9Ik0yNDcgOTBsNzAuNTM0IDIxNy4wODItMTg0LjY2LTEzNC4xNjRoMjI4LjI1M0wxNzYuNDY2IDMwNy4wODJ6Ii8+PHVzZSB4bGluazpocmVmPSIjYSIgeT0iNDIwIi8+PHVzZSB4bGluazpocmVmPSIjYSIgeT0iODQwIi8+PHVzZSB4bGluazpocmVmPSIjYSIgeT0iMTI2MCIvPjwvZz48dXNlIHhsaW5rOmhyZWY9IiNhIiB5PSIxNjgwIi8+PC9nPjx1c2UgeGxpbms6aHJlZj0iI2IiIHg9IjI0NyIgeT0iMjEwIi8+PC9nPjx1c2UgeGxpbms6aHJlZj0iI2MiIHg9IjQ5NCIvPjwvZz48dXNlIHhsaW5rOmhyZWY9IiNkIiB4PSI5ODgiLz48dXNlIHhsaW5rOmhyZWY9IiNjIiB4PSIxOTc2Ii8+PHVzZSB4bGluazpocmVmPSIjZSIgeD0iMjQ3MCIvPjwvZz48L3N2Zz4="
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-6 mr-2"
-                alt="India"
-              />
-
-              <span className="text-white opacity-70">GeekyAnts Inc</span>
-            </h6>
-
-            {/* address */}
-            <address className="mt-3 text-white opacity-70 text-sm font-normal not-italic">
-              <span className="block leading-6">
-                315 Montgomery Street, 9th & 10th Floors,
-              </span>
-              <span className="block leading-6">
-                San Francisco, CA, 94104, USA
-              </span>
-              <div className="leading-6 pt-2 flex items-center">
-                <svg
-                  stroke="currentColor"
-                  fill="currentColor"
-                  strokeWidth="0"
-                  viewBox="0 0 512 512"
-                  height="1em"
-                  width="1em"
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="rotate-90"
-                >
-                  <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path>
-                </svg>
-
-                <span className="block px-3"> +1(415)2759099</span>
-              </div>
-            </address>
-          </div>
+                  <span className="block px-3">{address.phone}</span>
+                </div>
+              </address>
+            </div>
+          ))}
         </div>
       </div>
 

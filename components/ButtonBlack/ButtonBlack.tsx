@@ -34,7 +34,7 @@ const ButtonBlack = ({ text, type }: Props) => {
   };
 
   return (
-    <div className="bg-[#222323] rounded text-white mr-3 flex mt-2 md:mt-0">
+    <div className="bg-dark rounded text-white mr-3 flex mt-2 md:mt-0">
       <button
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}

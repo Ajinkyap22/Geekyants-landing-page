@@ -4,21 +4,26 @@ import Image from "next/image";
 import LetsTalk from "components/LetsTalk/LetsTalk";
 
 import Logo from "public/images/logo.svg";
+import { HeroDataType } from "types/heroDataType";
 
-const Hero = () => {
+type Props = {
+  data: HeroDataType;
+};
+
+const Hero = ({ data }: Props) => {
   return (
     <section className="overflow-x-hidden relative">
       <div className="xl:container xl:mx-auto px-8 lg:px-20 2xl:px-40 flex flex-col justify-center mt-28 md:mt-44 pb-20">
         {/* title */}
         <div className="z-10">
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade">
-            Research.
+            {data.header[0]}
           </h1>
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade-slow">
-            Collaborate.
+            {data.header[1]}
           </h1>
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade-slower">
-            Build.
+            {data.header[2]}
           </h1>
         </div>
 
@@ -72,35 +77,35 @@ const Hero = () => {
 
           {/* products */}
           <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-[#34333a] hover:text-primary transition-colors tracking-wider">
+            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
               Products
             </button>
           </li>
 
           {/* services */}
           <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-[#34333a] hover:text-primary transition-colors tracking-wider">
+            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
               Services
             </button>
           </li>
 
           {/* our work */}
           <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-[#34333a] hover:text-primary transition-colors tracking-wider">
+            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
               Our Work
             </button>
           </li>
 
           {/* solutions */}
           <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-[#34333a] hover:text-primary transition-colors tracking-wider">
+            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
               Solutions
             </button>
           </li>
 
           {/* more */}
           <li className="hidden lg:block">
-            <button className="p-2 text-lg text-[#34333a] hover:text-primary transition-colors tracking-wider">
+            <button className="p-2 text-lg text-nav-link hover:text-primary transition-colors tracking-wider">
               More
             </button>
           </li>
