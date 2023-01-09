@@ -1,9 +1,18 @@
 import React from "react";
 
 import Image from "next/image";
-import uniqid from "uniqid";
+
+import Connect from "components/Footer/Connect";
+import Brands from "components/Footer/Brands";
+import QuickLinks from "components/Footer/QuickLinks";
+import Hire from "components/Footer/Hire";
+import Model from "components/Footer/Model";
+import Contacts from "components/Footer/Contacts";
+import Copyright from "components/Footer/Copyright";
 
 import { FooterDataType } from "types/footerDataType";
+import Awards from "./Awards";
+import Company from "./Company";
 
 type Props = {
   data: FooterDataType;
@@ -34,234 +43,40 @@ const Footer = ({ data }: Props) => {
             </p>
 
             {/* brands */}
-            <div className="flex items-center rounded w-fit py-4 px-6 bg-dark">
-              {/* iso */}
-              <div className="w-16 hover:opacity-90 cursor-pointer">
-                <Image
-                  src="https://geekyants.com/_next/static/images/iso-7ebc35916d948223d7fe64287f3e1305.svg"
-                  width="0"
-                  height="0"
-                  sizes="100vw"
-                  className="w-full h-fit object-contain"
-                  alt="ISO"
-                />
-              </div>
-
-              {/* gms */}
-              <div className="w-12 mx-3 hover:opacity-90">
-                <Image
-                  src="https://geekyants.com/_next/static/images/gms-a59b7e2942dba344e5235c1360b77f12.svg"
-                  width="0"
-                  height="0"
-                  sizes="100vw"
-                  className="w-full h-fit object-contain"
-                  alt="ISO"
-                />
-              </div>
-
-              {/* aiao-bar */}
-              <div className="w-12 hover:opacity-90">
-                <Image
-                  src="https://geekyants.com/_next/static/images/aiao-f8a0bbbcd7b6dfbcbfe41e062a0cef9a.svg"
-                  width="0"
-                  height="0"
-                  sizes="100vw"
-                  className="w-full h-fit object-contain"
-                  alt="ISO"
-                />
-              </div>
-            </div>
+            <Brands brands={data.brands} />
 
             {/* connect */}
-            <div className="flex flex-col mt-8">
-              <h6 className="mb-5 text-lg font-medium text-white opacity-70 tracking-wider">
-                CONNECT
-              </h6>
-
-              {/* social media icons */}
-              <div className="flex flex-wrap w-full">
-                {data.socialIcons.map((icon) => (
-                  <div
-                    key={uniqid()}
-                    className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-dark"
-                  >
-                    <Image
-                      src={icon.src}
-                      width="0"
-                      height="0"
-                      sizes="100vw"
-                      className="w-6 h-6 object-contain"
-                      alt={icon.name}
-                    />
-                  </div>
-                ))}
-              </div>
-            </div>
+            <Connect icons={data.social_icons} />
           </div>
 
           {/* quick links */}
-          <div className="mt-8 lg:mt-0">
-            {/* title */}
-            <h6 className="text-white opacity-70 font-mediumm mb-6 text-lg">
-              QUICK LINKS
-            </h6>
-
-            {/* list */}
-            <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-3 lg:gap-0">
-              {data.quickLinks.map((link) => (
-                <li
-                  key={uniqid()}
-                  className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal"
-                >
-                  {link}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <QuickLinks quickLinks={data.quick_links} />
 
           {/* hire developers */}
-          <div className="mt-8 lg:mt-0">
-            {/* title */}
-            <h6 className="text-white opacity-70 font-mediumm mb-6 text-lg">
-              HIRE DEVELOPERS
-            </h6>
-
-            {/* list */}
-            <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-3 lg:gap-0 w-full">
-              {data.hireDevelopers.map((type) => (
-                <li
-                  key={uniqid()}
-                  className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal"
-                >
-                  {type}
-                </li>
-              ))}
-            </ul>
-          </div>
+          <Hire hire={data.hire} />
 
           <div>
-            <div className="mt-8 lg:mt-0">
-              {/* title */}
-              <h6 className="text-white opacity-70 font-mediumm mb-6 text-lg">
-                ENGAGEMENT MODEL
-              </h6>
+            {/* engagement model */}
+            <Model model={data.model} />
 
-              {/* list */}
-              <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-3 lg:gap-0 w-full">
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  Fixed Scope
-                </li>
-
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  Dedicated Team
-                </li>
-
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  Agile Product
-                </li>
-              </ul>
-            </div>
-
-            <div className="lg:mt-8 mt-12">
-              {/* title */}
-              <h6 className="text-white opacity-70 font-mediumm mb-6 text-lg">
-                COMPANY
-              </h6>
-
-              {/* list */}
-              <ul className="grid grid-cols-2 lg:grid-cols-1 gap-x-3 lg:gap-0 w-full">
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  FAQs
-                </li>
-
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  Sitemap
-                </li>
-
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  Annual Return
-                </li>
-
-                <li className="py-1 w-full opacity-70 text-sm text-white cursor-pointer hover:opacity-100 transition-opacity duration-250 leading-6 font-normal">
-                  Corporate Social Responsibility
-                </li>
-              </ul>
-            </div>
+            {/* company */}
+            <Company company={data.company} />
           </div>
         </div>
 
         {/* awards */}
-        <div className="grid mt-14 grid-cols-3 md:grid-cols-7 items-center justify-items-center gap-14 py-10 border-y border-[#707070]">
-          {data.awards.map((award) => (
-            <div key={uniqid()} className="w-3/4">
-              <Image
-                src={award}
-                width="0"
-                height="0"
-                sizes="100vw"
-                className="w-full"
-                alt="award"
-              />
-            </div>
-          ))}
-        </div>
+        <Awards awards={data.awards} />
 
-        {/* addresses */}
-        <div className="grid md:grid-cols-3 mt-10 gap-10 pt-12">
-          {data.addresses.map((address) => (
-            <div key={address.id}>
-              {/* title */}
-              <h6 className="flex items-center">
-                <Image
-                  src={address.icon}
-                  width="0"
-                  height="0"
-                  sizes="100vw"
-                  className="w-6 mr-2"
-                  alt="flag"
-                />
-
-                <span className="text-white opacity-70">{address.company}</span>
-              </h6>
-
-              {/* address */}
-              <address className="mt-3 text-white opacity-70 text-sm font-normal not-italic">
-                <span className="block leading-6">{address.address}</span>
-
-                <div className="leading-6 pt-2 flex items-center">
-                  <svg
-                    stroke="currentColor"
-                    fill="currentColor"
-                    strokeWidth="0"
-                    viewBox="0 0 512 512"
-                    height="1em"
-                    width="1em"
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="rotate-90"
-                  >
-                    <path d="M493.4 24.6l-104-24c-11.3-2.6-22.9 3.3-27.5 13.9l-48 112c-4.2 9.8-1.4 21.3 6.9 28l60.6 49.6c-36 76.7-98.9 140.5-177.2 177.2l-49.6-60.6c-6.8-8.3-18.2-11.1-28-6.9l-112 48C3.9 366.5-2 378.1.6 389.4l24 104C27.1 504.2 36.7 512 48 512c256.1 0 464-207.5 464-464 0-11.2-7.7-20.9-18.6-23.4z"></path>
-                  </svg>
-
-                  <span className="block px-3">{address.phone}</span>
-                </div>
-              </address>
-            </div>
-          ))}
-        </div>
+        {/* contacts */}
+        <Contacts contacts={data.contacts} />
       </div>
 
       {/* copyright */}
-      <div className="mt-10 bg-[#161617] py-4">
-        <div className="xl:container xl:mx-auto flex-col flex md:flex-row justify-between px-8 lg:px-20 2xl:px-40">
-          <span className="block text-white tracking-wider opacity-70 font-light text-sm">
-            2022 © All rights reserved. GeekyAnts India Pvt Ltd
-          </span>
-
-          <span className="block text-white tracking-wider opacity-70 font-light text-sm">
-            Privacy Policy | Terms and Conditions
-          </span>
-        </div>
-      </div>
+      <Copyright
+        privacy={data.privacy}
+        tnc={data.tnc}
+        copyright={data.copyright}
+      />
     </footer>
   );
 };

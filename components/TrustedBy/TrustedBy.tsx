@@ -1,33 +1,34 @@
-import React from "react";
+import React, { forwardRef } from "react";
 
 import LetsTalk from "components/LetsTalk/LetsTalk";
 import Slider from "components/Slider/Slider";
 
+import { PartnersDataType } from "types/partnersDataType";
+
 type Props = {
-  data: string[];
+  data: PartnersDataType;
 };
 
-const TrustedBy = ({ data }: Props) => {
+const TrustedBy = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
   return (
-    <div className="bg-darkBlue pb-16">
+    <div ref={ref} className="bg-darkBlue pb-16">
       <div className="xl:container xl:mx-auto py-8 md:py-28 px-8 lg:px-20 2xl:px-40 text-white">
         {/* title */}
-        <h1 className="text-4xl md:text-5xl font-bold py-1">Trusted by</h1>
+        <h1 className="text-4xl md:text-5xl font-bold py-1">{data.heading}</h1>
 
         {/* description */}
         <p className="font-light text-light text-lg md:text-xl mt-10 mb-12">
-          Leading companies across the globe have put their faith in us to drive
-          innovation and develop tailored solutions for them.
+          {data.subheading}
         </p>
 
         {/* button */}
-        <LetsTalk text="READ THE CASE STUDIES" />
+        <LetsTalk text={data.button} />
 
         {/* slider */}
-        <Slider data={data} />
+        <Slider data={data.partners} />
       </div>
     </div>
   );
-};
+});
 
 export default TrustedBy;

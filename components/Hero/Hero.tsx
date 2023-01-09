@@ -6,6 +6,8 @@ import LetsTalk from "components/LetsTalk/LetsTalk";
 import Logo from "public/images/logo.svg";
 import { HeroDataType } from "types/heroDataType";
 
+import uniqid from "uniqid";
+
 type Props = {
   data: HeroDataType;
 };
@@ -17,53 +19,59 @@ const Hero = ({ data }: Props) => {
         {/* title */}
         <div className="z-10">
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade">
-            {data.header[0]}
+            {data.heading[0]}
           </h1>
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade-slow">
-            {data.header[1]}
+            {data.heading[1]}
           </h1>
           <h1 className="text-6xl lg:text-8xl leading-tight font-bold animate-fade-slower">
-            {data.header[2]}
+            {data.heading[2]}
           </h1>
         </div>
 
         {/* description */}
         <div className="text-2xl lg:text-4xl font-light lg:w-2/3 xl:w-1/2 2xl:w-2/5 mt-8 md:mt-20 z-10 !leading-normal">
-          Design & development studio turning ideas into
+          {data.subheading}
+
           {/* mobile */}
           <div className="inline pl-2.5 absolute">
             <span className="block whitespace-nowrap animate-slideIn overflow-hidden opacity-0">
-              mobile apps.
+              {data.subheading_options[0]}
             </span>
           </div>
+
           {/* web */}
           <div className="inline pl-2.5 absolute">
             <span className="block whitespace-nowrap animate-slideIn-fast overflow-hidden opacity-0">
-              web apps.
+              {data.subheading_options[1]}
             </span>
           </div>
+
           {/* solutions */}
           <div className="inline pl-2.5 absolute">
             <span className="block whitespace-nowrap animate-slideIn-normal overflow-hidden opacity-0">
-              solutions.
+              {data.subheading_options[2]}
             </span>
           </div>
+
           {/* reality */}
           <div className="inline pl-2.5 absolute">
             <span className="block whitespace-nowrap animate-slideIn-slow overflow-hidden opacity-0">
-              reality.
+              {data.subheading_options[3]}
             </span>
           </div>
+
           {/* open source */}
           <div className="inline pl-2.5 absolute">
             <span className="block whitespace-nowrap animate-slideIn-slower overflow-hidden opacity-0">
-              open source.
+              {data.subheading_options[4]}
             </span>
           </div>
+
           {/* apps */}
           <div className="inline pl-2.5 absolute">
             <span className="block whitespace-nowrap animate-slideIn-slowest overflow-hidden opacity-0">
-              apps.
+              {data.subheading_options[5]}
             </span>
           </div>
         </div>
@@ -75,40 +83,14 @@ const Hero = ({ data }: Props) => {
             <LetsTalk text="LET'S TALK" />
           </li>
 
-          {/* products */}
-          <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
-              Products
-            </button>
-          </li>
-
-          {/* services */}
-          <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
-              Services
-            </button>
-          </li>
-
-          {/* our work */}
-          <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
-              Our Work
-            </button>
-          </li>
-
-          {/* solutions */}
-          <li className="hidden lg:block">
-            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
-              Solutions
-            </button>
-          </li>
-
-          {/* more */}
-          <li className="hidden lg:block">
-            <button className="p-2 text-lg text-nav-link hover:text-primary transition-colors tracking-wider">
-              More
-            </button>
-          </li>
+          {/* nav_links */}
+          {data.nav_links.map((link) => (
+            <li key={uniqid()} className="hidden lg:block">
+              <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
+                {link}
+              </button>
+            </li>
+          ))}
         </ul>
       </div>
 

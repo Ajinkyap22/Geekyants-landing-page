@@ -21,17 +21,23 @@ import {
   partners,
   whatWeDo,
   products,
+  tech,
   communities,
   insights,
-  communityMeetups,
+  meetups,
+  letsBuild,
   footer,
 } from "data/queries";
 
 import { HeroDataType } from "types/heroDataType";
+import { PartnersDataType } from "types/partnersDataType";
+import { WhatWeDoDataType } from "types/whatWeDoDataType";
 import { ProductsDataType } from "types/productsDataType";
+import { TechDataType } from "types/techDataType";
 import { CommunitiesDataType } from "types/communitiesDataType";
 import { InsightsDataType } from "types/insightsDataType";
 import { MeetupsDataType } from "types/meetupsDataType";
+import { LetsBuildDataType } from "types/letsBuildDataType";
 import { FooterDataType } from "types/footerDataType";
 
 export const getStaticProps: GetStaticProps = async () => {
@@ -39,21 +45,24 @@ export const getStaticProps: GetStaticProps = async () => {
   const partnersData = await getData(partners);
   const whatWeDoData = await getData(whatWeDo);
   const productsData = await getData(products);
+  const techData = await getData(tech);
   const communitiesData = await getData(communities);
   const insightsData = await getData(insights);
-  const communityMeetupsData = await getData(communityMeetups);
+  const meetupsData = await getData(meetups);
+  const letsBuldData = await getData(letsBuild);
   const footerData = await getData(footer);
 
   return {
     props: {
-      heroData: heroData.data.ban_ner[0],
-      partnersData: partnersData.data.trustedPartner[0].partners,
-      whatWeDoData: whatWeDoData.data.work,
-      productsData: productsData.data.sourceProducts,
-      communitiesData: communitiesData.data.communities[0].communities,
-      insightsData: insightsData.data.insights,
-      communityMeetupsData:
-        communityMeetupsData.data.communityMeetup[0].meetups,
+      heroData: heroData.data.hero[0],
+      partnersData: partnersData.data.trusted_by[0],
+      whatWeDoData: whatWeDoData.data.what_we_do[0],
+      productsData: productsData.data.products[0],
+      techData: techData.data.tech[0],
+      communitiesData: communitiesData.data.communities[0],
+      insightsData: insightsData.data.insights[0],
+      meetupsData: meetupsData.data.meetups[0],
+      letsBuildData: letsBuldData.data.lets_build[0],
       footerData: footerData.data.footer[0],
     },
   };
@@ -61,12 +70,14 @@ export const getStaticProps: GetStaticProps = async () => {
 
 type Props = {
   heroData: HeroDataType;
-  partnersData: string[];
-  whatWeDoData: ProductsDataType;
+  partnersData: PartnersDataType;
+  whatWeDoData: WhatWeDoDataType;
   productsData: ProductsDataType;
+  techData: TechDataType;
   communitiesData: CommunitiesDataType;
   insightsData: InsightsDataType;
-  communityMeetupsData: MeetupsDataType;
+  meetupsData: MeetupsDataType;
+  letsBuildData: LetsBuildDataType;
   footerData: FooterDataType;
 };
 
@@ -75,21 +86,23 @@ export default function Home({
   partnersData,
   whatWeDoData,
   productsData,
+  letsBuildData,
+  techData,
   communitiesData,
   insightsData,
-  communityMeetupsData,
+  meetupsData,
   footerData,
 }: Props) {
-  const techRef = useRef<HTMLDivElement | null>(null);
+  const trustedRef = useRef<HTMLDivElement | null>(null);
   const [showNavbar, setShowNavbar] = useState<boolean>(false);
 
   const handleWindowScrollAndResize = () => {
-    if (!techRef.current) return;
+    if (!trustedRef.current) return;
 
-    const techRefTop = techRef.current.getBoundingClientRect().top;
+    const trustedRefTop = trustedRef.current.getBoundingClientRect().top;
 
     // check if the navbar is about to overlap with the tech section
-    if (techRefTop <= 80) {
+    if (trustedRefTop <= 80) {
       setShowNavbar(true);
     } else {
       setShowNavbar(false);
@@ -113,10 +126,12 @@ export default function Home({
           GeekyAnts - App Design and Development Studio Turning Ideas Into
           Reality | Research. Collaborate. Build.
         </title>
+
         <meta
           name="description"
           content="GeekyAnts is a global leading web and mobile app development company that offers design and development services to help your business transform digitally."
         ></meta>
+
         <meta name="viewport" content="width=device-width, initial-scale=1" />
 
         <link rel="icon" href="/favicon.ico" />
@@ -125,6 +140,7 @@ export default function Home({
           property="og:title"
           content="GeekyAnts - App Design and Development Studio Turning Ideas Into Reality | Research. Collaborate. Build."
         ></meta>
+
         <meta
           property="og:description"
           content="GeekyAnts is a global leading web and mobile app development company that offers design and development services to help your business transform digitally."
@@ -138,7 +154,7 @@ export default function Home({
       <Hero data={heroData} />
 
       {/* trusted by */}
-      <TrustedBy data={partnersData} />
+      <TrustedBy ref={trustedRef} data={partnersData} />
 
       {/* what we do */}
       <WhatWeDo data={whatWeDoData} />
@@ -147,7 +163,7 @@ export default function Home({
       <Products data={productsData} />
 
       {/* tech we love */}
-      <Tech ref={techRef} />
+      <Tech data={techData} />
 
       {/* communities */}
       <Communities data={communitiesData} />
@@ -156,10 +172,10 @@ export default function Home({
       <Insights data={insightsData} />
 
       {/* meetups */}
-      <Meetups data={communityMeetupsData} />
+      <Meetups data={meetupsData} />
 
       {/* let's build */}
-      <LetsBuild />
+      <LetsBuild data={letsBuildData} />
 
       {/* footer */}
       <Footer data={footerData} />

@@ -1,7 +1,8 @@
 export type HeroDataType = {
   id: number;
-  header: string[];
+  heading: string[];
   subheading: string;
-  options: string[];
+  subheading_options: string[];
   button: string;
+  nav_links: string[];
 };

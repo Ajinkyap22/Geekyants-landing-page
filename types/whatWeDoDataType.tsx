@@ -1,11 +1,12 @@
-export type CommunitiesDataType = {
+export type WhatWeDoDataType = {
+  id: number;
   heading: string;
   subheading: string;
   button: string;
-  communities: {
+  work: {
     id: number;
-    name: string;
+    heading: string;
+    description: string;
     icon: string;
-    bgColor: string;
   }[];
 };

@@ -1,7 +1,12 @@
 export type InsightsDataType = {
   id: number;
-  title: string;
-  description: string;
-  image: string;
-  date: string;
-}[];
+  heading: string;
+  subheading: string;
+  buttons: string[];
+  cards: {
+    title: string;
+    description: string;
+    image: string;
+    date: string;
+  }[];
+};

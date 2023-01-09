@@ -4,11 +4,11 @@ import Image from "next/image";
 type Props = {
   id: number;
   name: string;
-  image: string;
+  icon: string;
   bgColor: string;
 };
 
-const CommunitiyCard = ({ name, image, bgColor }: Props) => {
+const CommunitiyCard = ({ name, icon, bgColor }: Props) => {
   return (
     <div>
       {/* div with bg */}
@@ -20,7 +20,13 @@ const CommunitiyCard = ({ name, image, bgColor }: Props) => {
       >
         {/* image */}
         <Image
-          src={image}
+          src={
+            icon.includes("svg")
+              ? `data:image/svg+xml;base64,${Buffer.from(icon).toString(
+                  "base64"
+                )}`
+              : icon
+          }
           alt={name}
           width="0"
           height="0"
