@@ -1,6 +1,7 @@
 import React from "react";
 
 import Image from "next/image";
+import uniqid from "uniqid";
 
 type Props = {
   icons: string[];
@@ -16,7 +17,10 @@ const Connect = ({ icons }: Props) => {
       {/* social media icons */}
       <div className="flex flex-wrap w-full">
         {icons.map((icon) => (
-          <div className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-dark">
+          <div
+            key={uniqid()}
+            className="mr-[0.625rem] mb-[0.625rem] flex justify-center items-center w-11 h-11 rounded-full bg-dark"
+          >
             <Image
               src={`data:image/svg+xml;base64,${icon}`}
               width="0"
