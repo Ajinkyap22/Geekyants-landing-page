@@ -7,18 +7,10 @@ import uniqid from "uniqid";
 type Props = {
   activeTab: string;
   handleTabClick: (tab: string) => void;
+  tabs: string[];
 };
 
-const TechTabs = ({ activeTab, handleTabClick }: Props) => {
-  const [tabs, setTabs] = useState<string[]>([
-    "Top",
-    "Web",
-    "Mobile",
-    "Back-end",
-    "Design",
-    "Testing",
-  ]);
-
+const TechTabs = ({ activeTab, tabs, handleTabClick }: Props) => {
   return (
     <div className="mt-20 mb-10">
       {/* buttons */}

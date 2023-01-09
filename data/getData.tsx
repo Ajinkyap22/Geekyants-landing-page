@@ -1,7 +1,7 @@
 const hasuraSecret = process.env
-  .NEXT_PUBLIC_HASURA_GRAPHQL_ADMIN_SECRET as string;
+  .NEXT_PUBLIC_HASURA_GRAPHQL_ADMIN_SECRET_NEW as string;
 
-const apiUrl = process.env.NEXT_PUBLIC_API_URL as string;
+const apiUrl = process.env.NEXT_PUBLIC_API_URL_NEW as string;
 
 export const getData = async (body: object) => {
   try {

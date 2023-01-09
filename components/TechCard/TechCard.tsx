@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import Image from "next/image";
 
@@ -13,7 +13,13 @@ const TechCard = ({ tech }: Props) => {
   return (
     <div className="bg-white p-5 border border-[#e6e6e6] cursor-pointer">
       <Image
-        src={tech.icon}
+        src={
+          tech.icon.includes("svg")
+            ? `data:image/svg+xml;base64,${Buffer.from(tech.icon).toString(
+                "base64"
+              )}`
+            : tech.icon
+        }
         alt={tech.name}
         width="0"
         height="0"

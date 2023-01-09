@@ -28,14 +28,14 @@ const BlogCard = ({ item }: Props) => {
 
       <div className="relative pt-4 pb-8 px-4">
         {/* title */}
-        <h3 className="text-base md:text-2xl text-[#414141] font-semibold">
+        <p className="text-base md:text-2xl text-[#414141] font-semibold">
           {item.title}
-        </h3>
+        </p>
 
         {/* description */}
-        <div className="mb-3 overflow-hidden pt-3 text-nav-link font-light tracking-wider">
+        <p className="mb-3 overflow-hidden pt-3 text-nav-link font-light tracking-wider">
           {item.description}
-        </div>
+        </p>
 
         {/* date */}
         <p className="p-0 text-sm text-nav-link font-light">{item.date}</p>

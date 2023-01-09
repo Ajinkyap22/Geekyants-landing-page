@@ -5,6 +5,8 @@ import LetsTalk from "components/LetsTalk/LetsTalk";
 
 import { CommunitiesDataType } from "types/communitiesDataType";
 
+import uniqid from "uniqid";
+
 type Props = {
   data: CommunitiesDataType;
 };
@@ -17,17 +19,17 @@ const Communities = ({ data }: Props) => {
         <h1 className="text-4xl md:text-5xl font-bold py-1">{data.heading}</h1>
 
         {/* description */}
-        <p className="font-light text-xl my-3 mt-5">{data.subHeading}</p>
+        <p className="font-light text-xl my-3 mt-5">{data.subheading}</p>
 
         {/* button */}
         <div className="mt-12">
-          <LetsTalk text={data.buttonText} />
+          <LetsTalk text={data.button} />
         </div>
 
         {/* cards */}
         <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-x-5 gap-y-6 justify-items-center md:justify-items-start mt-20">
           {data.communities.map((community) => (
-            <CommunitiyCard key={community.id} {...community} />
+            <CommunitiyCard key={uniqid()} {...community} />
           ))}
         </div>
       </div>

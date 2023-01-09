@@ -1,18 +1,20 @@
 export type FooterDataType = {
-  socialIcons: {
-    src: string;
-    name: string;
-  }[];
-  quickLinks: string[];
-  hireDevelopers: string[];
-  engagements: string[];
+  logo: string;
+  description: string;
+  brands: string[];
+  social_icons: string[];
+  quick_links: string[];
+  hire: string[];
+  model: string[];
   company: string[];
   awards: string[];
-  addresses: {
-    id: number;
+  contacts: {
+    country: string;
     company: string;
     address: string;
     phone: string;
-    icon: string;
   }[];
+  copyright: string;
+  privacy: string;
+  tnc: string;
 };

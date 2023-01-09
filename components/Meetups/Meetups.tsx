@@ -6,6 +6,8 @@ import LetsTalk from "components/LetsTalk/LetsTalk";
 
 import { MeetupsDataType } from "types/meetupsDataType";
 
+import uniqid from "uniqid";
+
 type Props = {
   data: MeetupsDataType;
 };
@@ -18,17 +20,19 @@ const Meetups = ({ data }: Props) => {
         <h1 className="text-4xl md:text-5xl font-bold py-1">{data.heading}</h1>
 
         {/* description */}
-        <p className="font-light text-xl my-3 mt-5">{data.subheading}</p>
+        <p className="font-light text-light text-xl my-3 mt-5">
+          {data.subheading}
+        </p>
 
         {/* button */}
         <div className="mb-10 mt-8 md:mb-20 md:mt-12">
-          <LetsTalk text={data.buttonText} />
+          <LetsTalk text={data.button} />
         </div>
 
         {/* blog cards */}
         <div className=" mt-8 md:mt-20 grid grid-cols-1 mx-2 md:mx-0 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {data.meetups.map((item) => {
-            return <BlogCard key={item.id} item={item} />;
+          {data.cards.map((item) => {
+            return <BlogCard key={uniqid()} item={item} />;
           })}
         </div>
       </div>

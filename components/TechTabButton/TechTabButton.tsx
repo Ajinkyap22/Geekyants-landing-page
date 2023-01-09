@@ -10,7 +10,7 @@ const TechTabButton = ({ text, handleTabClick, isActive = false }: Props) => {
   return (
     <button
       onClick={() => handleTabClick(text)}
-      className={`border mt-3 ${
+      className={`border mt-3 font-medium ${
         isActive
           ? "bg-[#19222A] text-white border"
           : "bg-white text-black hover:bg-zinc-100 border-[#CCCCCC]"
