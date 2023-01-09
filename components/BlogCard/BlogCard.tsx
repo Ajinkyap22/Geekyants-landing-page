@@ -34,7 +34,11 @@ const BlogCard = ({ item }: Props) => {
 
         {/* description */}
         <p className="mb-3 overflow-hidden pt-3 text-nav-link font-light tracking-wider">
-          {item.description}
+          {item.description.trim().length >= 159
+            ? `
+              ${item.description.slice(0, 161)}...
+            `
+            : item.description}
         </p>
 
         {/* date */}
