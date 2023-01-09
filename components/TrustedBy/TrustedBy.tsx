@@ -11,7 +11,7 @@ type Props = {
 
 const TrustedBy = forwardRef<HTMLDivElement, Props>(({ data }, ref) => {
   return (
-    <div ref={ref} className="bg-darkBlue pb-16">
+    <div ref={ref} className="bg-darkBlue pb-16" id="trusted">
       <div className="xl:container xl:mx-auto py-8 md:py-28 px-8 lg:px-20 2xl:px-40 text-white">
         {/* title */}
         <h1 className="text-4xl md:text-5xl font-bold py-1">{data.heading}</h1>

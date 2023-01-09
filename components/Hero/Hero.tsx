@@ -84,13 +84,53 @@ const Hero = ({ data }: Props) => {
           </li>
 
           {/* nav_links */}
-          {data.nav_links.map((link) => (
-            <li key={uniqid()} className="hidden lg:block">
-              <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
-                {link}
-              </button>
-            </li>
-          ))}
+
+          {/* products */}
+          <li className="hidden lg:block">
+            <a
+              href="#open-source"
+              className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider"
+            >
+              {data.nav_links[0]}
+            </a>
+          </li>
+
+          {/* services */}
+          <li className="hidden lg:block">
+            <a
+              href="#services"
+              className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider"
+            >
+              {data.nav_links[1]}
+            </a>
+          </li>
+
+          {/* our work */}
+          <li className="hidden lg:block">
+            <a
+              href="#trusted"
+              className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider"
+            >
+              {data.nav_links[2]}
+            </a>
+          </li>
+
+          {/* solutions */}
+          <li className="hidden lg:block">
+            <button className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider">
+              {data.nav_links[3]}
+            </button>
+          </li>
+
+          {/* more */}
+          <li className="hidden lg:block">
+            <a
+              href="#footer"
+              className="p-2 mx-3 text-xl text-nav-link hover:text-primary transition-colors tracking-wider"
+            >
+              {data.nav_links[4]}
+            </a>
+          </li>
         </ul>
       </div>
 

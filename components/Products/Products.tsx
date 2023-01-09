@@ -11,7 +11,7 @@ type Props = {
 
 const Products = ({ data }: Props) => {
   return (
-    <div className="bg-darkBlue pb-16">
+    <div className="bg-darkBlue pb-16" id="open-source">
       <div className="xl:container xl:mx-auto py-8 md:py-28 px-8 lg:px-20 2xl:px-40 text-white">
         {/* title */}
         <h2 className="font-bold text-4xl md:text-5xl">{data.heading}</h2>

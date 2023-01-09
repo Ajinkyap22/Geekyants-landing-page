@@ -10,7 +10,7 @@ type Props = {
 
 const LetsBuild = ({ data }: Props) => {
   return (
-    <section className="bg-white">
+    <section className="bg-white" id="footer">
       <div className="xl:container xl:mx-auto py-12 md:py-24 px-8 lg:px-20 2xl:px-40">
         <h2 className="italic font-light font-sans-light tracking-wide text-5xl max-[768px]:text-4xl">
           {data.heading_light}
