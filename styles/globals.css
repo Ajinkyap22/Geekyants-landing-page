@@ -6,3 +6,7 @@
 .swiper-button-prev {
   display: none !important;
 }
+
+* {
+  font-display: swap;
+}
