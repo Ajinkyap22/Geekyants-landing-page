@@ -51,7 +51,7 @@ const fontLight = localFont({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <main className={`${fontLight.variable} ${font.variable} font-sans `}>
+    <main className={`${fontLight.variable} ${font.variable} font-sans`}>
       <Component {...pageProps} />
     </main>
   );
